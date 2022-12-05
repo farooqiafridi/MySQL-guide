@@ -1,0 +1,64 @@
+INSTALL MYSQL DATABASE,CREATE USER AND THEN CONNECT WITH DBeaver
+
+Installation step: refer the website:
+   https://phoenixnap.com/kb/install-mysql-ubuntu-20-04
+==> sudo apt update
+==> sudo apt upgrade
+==> sudo apt install mysql-server
+==> mysql –version
+
+Securing MySQL
+  After installation mysql  in server
+* sudo mysql (this command used)
+* enter into the mysql
+-->ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'eccE2Hi3kl!7^';  (random passwd)
+
+-->sudo mysql_secure_installation
+
+Check if MySQL Service Is Running
+
+==> sudo systemctl status mysql
+
+Log in to MySQL Server
+
+-->sudo mysql -u root
+-->sudo mysql -u root –p
+
+Configure mysql in server:
+-->cd /etc/mysql/mysql.conf.d
+==> vi mysqld.cnf
+bind – address change globaly
+-->bind-address  : 0.0.0.0
+Restart mysql server   --> systemctl mysql restart
+
+
+Create User:
+
+==> CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+
+==> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+
+==> CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+
+==> GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
+
+==> FLUSH PRIVILEGES;
+
+Delete user command
+
+==> DROP USER 'username'@'host';
+List the user in mysql:
+
+==> DESC mysql.user
+
+Create database:
+
+==> CREATE DATABASE database_name;
+
+List show database:
+
+==> SHOW DATABASES;
+
+
+
+
